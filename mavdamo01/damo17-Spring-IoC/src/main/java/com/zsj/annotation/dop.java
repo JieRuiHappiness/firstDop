@@ -1,0 +1,10 @@
+package com.zsj.annotation;
+
+import java.lang.annotation.*;
+
+@Target({ElementType.METHOD})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface dop {
+    String info() default "你好";
+}

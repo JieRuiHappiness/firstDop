@@ -1,8 +1,11 @@
 package com.zsj.imp;
 
-import com.zsj.api.Math;
+import com.zsj.annotation.dop;
+import com.zsj.api.Mathes;
+import org.springframework.stereotype.Component;
 
-public class MathImp implements Math {
+@Component
+public class MathImp implements Mathes {
     @Override
     public int add(int i, int j) {
         int result = i + j;
@@ -27,7 +30,7 @@ public class MathImp implements Math {
 
         return result;
     }
-
+@dop
     @Override
     public int div(int i, int j) {
         int result = i / j;
