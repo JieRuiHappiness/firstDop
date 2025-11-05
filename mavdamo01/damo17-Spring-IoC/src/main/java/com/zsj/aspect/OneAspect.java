@@ -11,7 +11,7 @@ import java.util.Arrays;
 @Component
 @Order(2)
 public class OneAspect {
-@Before(value = "printqqq()")
+@Before(value = "printAll()")
     public void beforPrint(JoinPoint joinPoint){
     String name = joinPoint.getSignature().getName();
     System.out.println("name = " + name);
@@ -24,22 +24,22 @@ public class OneAspect {
 
     System.out.println("**前置通知**");
     }
-    @AfterReturning(value = "printqqq()",returning = "returns")
+    @AfterReturning(value = "printAll()",returning = "returns")
     public void afterPrint(Object returns){
         System.out.println("返回值为 = " + returns);
         System.out.println("**返回通知**");
 
     }
-    @AfterThrowing(value ="printqqq()",throwing = "obj")
+    @AfterThrowing(value ="printAll()",throwing = "obj")
     public void afterExciption(Throwable obj){
         System.out.println("异常是 = " + obj);
         System.out.println("**异常通知**");
 
-    }@After("printqqq()")
+    }@After("printAll()")
     public void finallyPrint(){
         System.out.println("**结束通知**");
     }
-    @Pointcut("execution(public int *.*(int,int))")
+    @Pointcut("execution(public int *.*(String))")
     public void printAll(){
     }
     @Pointcut("@annotation(com.zsj.annotation.dop)")
